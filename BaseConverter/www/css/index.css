@@ -1,0 +1,16 @@
+*{
+    margin: 0 auto;
+    text-align: center;
+}
+
+hr{
+    margin-top: 2%;
+}
+
+body{
+    height: 100%;
+}
+
+input{
+    width: 50%;
+}
