@@ -11,6 +11,6 @@ body{
     height: 100%;
 }
 
-input{
-    width: 50%;
+#userInput{
+    width: 60%;
 }

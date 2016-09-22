@@ -8,6 +8,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/materialize.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="js/index.js"></script>
     <title>BaseConverter</title>
 </head>
 <body>
@@ -15,11 +16,11 @@
     <h1 id="appName">Base Converter</h1>
 </header>
 <main>
-    <input type="text" id="userInput">
+    <input type="text" id="userInput" placeholder="Enter Value Here...">
     <div class="container">
-        <button class="base waves-effect waves-light btn" id="type" enabled="false">Binary</button>
-        <button class="base waves-effect waves-light btn" id="type">Decimal</button>
-        <button class="base waves-effect waves-light btn" id="type" enabled="false">Hexidecimal</button>
+        <button class="base waves-effect waves-light btn" id="BinaryButton">Binary</button>
+        <button class="base waves-effect waves-light btn" id="DecimalButton" disabled="true">Decimal</button>
+        <button class="base waves-effect waves-light btn" id="HexButton">Hexidecimal</button>
     </div>
     <hr>
     <h2 class="baseLabel" id="Binary">Binary</h2>
