@@ -1,51 +1,63 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+var inputType = 10;
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+function convertInput() {
+    var inputString = document.getElementById("userInput").value, input, pass = true;
+    if (inputType === 2) {
+        if (!/^[0-1]+$/.test(inputString)) {
+            pass = false;
+        }
+    } else if (inputType === 16) {
+        if (!/^[a-fA-F\d]+$/.test(inputString)) {
+            pass = false;
+        }
+    } else {
+        if (!/^[0-9]+$/.test(inputString)) {
+            pass = false;
+        }
     }
-};
+    if (!pass) {
+        document.getElementById("BinaryValue").innerHTML = "Invalid Input";
+        document.getElementById("DecimalValue").innerHTML = "Invalid Input";
+        document.getElementById("HexValue").innerHTML = "Invalid Input";
+        return;
+    }
+    input = parseInt(inputString, inputType);
+    document.getElementById("BinaryValue").innerHTML = input.toString(2);
+    document.getElementById("DecimalValue").innerHTML = input.toString(10);
+    document.getElementById("HexValue").innerHTML = input.toString(16);
+}
 
-app.initialize();
+function btnClick(id) {
+    if (id === "BinaryButton") {
+        document.getElementById("BinaryButton").disabled = true;
+        document.getElementById("DecimalButton").disabled = false;
+        document.getElementById("HexButton").disabled = false;
+        inputType = 2;
+    } else if (id === "DecimalButton") {
+        document.getElementById("BinaryButton").disabled = false;
+        document.getElementById("DecimalButton").disabled = true;
+        document.getElementById("HexButton").disabled = false;
+        inputType = 10;
+    } else {
+        document.getElementById("BinaryButton").disabled = false;
+        document.getElementById("DecimalButton").disabled = false;
+        document.getElementById("HexButton").disabled = true;
+        inputType = 16;
+    }
+    convertInput();
+}
+
+window.onload = function () {
+    document.getElementById("BinaryButton").addEventListener("click", function () {
+        btnClick("BinaryButton");
+    });
+    document.getElementById("DecimalButton").addEventListener("click", function () {
+        btnClick("DecimalButton");
+    });
+    document.getElementById("HexButton").addEventListener("click", function () {
+        btnClick("HexButton");
+    });
+    document.getElementById("userInput").addEventListener("keyup", function () {
+        convertInput();
+    });
+};

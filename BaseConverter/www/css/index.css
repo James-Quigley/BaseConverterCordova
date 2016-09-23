@@ -1,5 +1,6 @@
 *{
     margin: 0 auto;
+    padding: 0;
     text-align: center;
 }
 
@@ -7,10 +8,59 @@ hr{
     margin-top: 2%;
 }
 
+html{
+    height: 100%;
+}
+
 body{
     height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #CFD8DC;
 }
 
 #userInput{
     width: 60%;
+    margin-top: 25px;
 }
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #212121;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #212121;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #212121;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #212121;
+}
+
+.base {
+    width: auto;
+}
+
+h1{
+    margin: 0 auto;
+    color: #FFFFFF;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+#appName {
+    width: 100%;
+    
+}
+
+header {
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #607D8B
+}
+
+
