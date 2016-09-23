@@ -16,7 +16,7 @@ body{
     height: 100%;
     margin: 0 auto;
     padding: 0;
-    background-color: #B2EBF2;
+    background-color: #FFF;
 }
 
 #userInput{
@@ -60,7 +60,7 @@ h2 {
 header {
     margin: 0 auto;
     padding: 10px;
-    background-color: #0097A7
+    background-color: #00BCD4
 }
 
 
