@@ -2,6 +2,12 @@ var inputType = 10;
 
 function convertInput() {
     var inputString = document.getElementById("userInput").value, input, pass = true;
+    if (inputString === "") {
+        document.getElementById("BinaryValue").innerHTML = "0";
+        document.getElementById("DecimalValue").innerHTML = "0";
+        document.getElementById("HexValue").innerHTML = "0";
+        return;
+    }
     if (inputType === 2) {
         if (!/^[0-1]+$/.test(inputString)) {
             pass = false;
